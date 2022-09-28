@@ -33,7 +33,7 @@ export class TodoService {
     })
       // emulating delay getting data
       .pipe(
-        //no we have to use map() to get response.body which is the same as observe: 'body'
+        //now we have to use map() to get response.body which is the same as observe: 'body'
         map(response => {
           return response.body
         }),
@@ -77,9 +77,9 @@ export class TodoService {
 
   completeTodo(id?: number): Observable<Todo> {
     return this.http.put<Todo>(`https://jsonplaceholder.typicode.com/todos/${id}`,
-    { complete: true },
-    // default is json
-    {responseType: 'json'}
+      { complete: true },
+      // default is json
+      { responseType: 'json' }
     );
   }
 
